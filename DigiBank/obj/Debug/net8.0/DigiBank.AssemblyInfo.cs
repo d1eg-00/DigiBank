@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DigiBank")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2d870a0054dadf5975495e307e509276530f71ff")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1c3c837a7789c253eed9bf64ecf4a3cb36f3dfed")]
 [assembly: System.Reflection.AssemblyProductAttribute("DigiBank")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DigiBank")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

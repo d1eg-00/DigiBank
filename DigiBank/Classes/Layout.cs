@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -74,12 +76,12 @@ namespace DigiBank.Classes
                 
                 Console.WriteLine("                 Conta Cadastrada com Sucesso!                 ");
                 Console.WriteLine("                ===============================                ");
+                //AGUARDA 1 SEGUNDO PARA DIRECIONAR A TELA LOGADA
+                Thread.Sleep(1000);
+
+                TelaContaLogada(pessoa);
             }
 
-        
-
-
-            // Logar no sistema
 
         private static void TelaLogin()
             {
@@ -91,8 +93,84 @@ namespace DigiBank.Classes
                 Console.WriteLine("                 ==========================                      ");
                 Console.WriteLine("                 2 - Digite sua Senha:                           ");
                 string senha = Console.ReadLine()!;
-        
+
+                //Logar no sistema
+
+                Pessoa pessoa = pessoas.FirstOrDefault(p => p.CPF == cpf && p.Senha == senha)!; //busca o primeiro ou unico registro dentro da lista
+
+                if (pessoa != null)
+                {
+                    //TELA DE BOAS VINDAS
+                    TelaBoasVindas(pessoa);
+                    //TELA CONTA LOGADA
+                    TelaContaLogada(pessoa);
+                }        
+                else
+                {
+                    Console.Clear();
+
+                    Console.WriteLine("                 Pessoa não Cadastrada!                 ");
+                    Console.WriteLine("                ===============================         ");
+
+                    Console.WriteLine();
+                    Console.WriteLine();
+                }
             }
-        
+        private static void TelaBoasVindas(Pessoa pessoa)
+        {
+            string msgTeladeBemVindo =
+                $@"{pessoa.Nome} | Banco : {pessoa?.Conta?.GetCodigoDoBanco()} | Agência : {pessoa?.Conta?.GetNumeroAgencia()} | Conta : {pessoa?.Conta?.GetNumeroDaConta()}";
+            Console.WriteLine($@"");
+            Console.WriteLine($@"                      Seja bem vindo, {msgTeladeBemVindo} !         ");
+            Console.WriteLine("");
+        }
+
+        private static void TelaContaLogada(Pessoa pessoa)
+        {
+            Console.Clear();
+
+            TelaBoasVindas(pessoa);
+            
+            
+            Console.WriteLine("             Digite a Opção Desejada:                           ");
+            Console.WriteLine("           =================================                    ");
+
+            Console.WriteLine("             1 - Realizar um Depósito :                           ");
+            Console.WriteLine("             =============================                        ");
+            Console.WriteLine("             2 - Realizar um Saque :                              ");
+            Console.WriteLine("             =============================                        ");
+            Console.WriteLine("             3 - Consultar Saldo :                                ");
+            Console.WriteLine("             =============================                        ");
+            Console.WriteLine("             4 - Extrato :                                        ");
+            Console.WriteLine("             =============================                        ");
+            Console.WriteLine("             5 - Sair :                                           ");
+
+            opcao = int.Parse(Console.ReadLine()!);
+            switch(opcao)
+            {
+                case 1:
+                    break;
+
+                case 2:
+                    break;
+
+                case 3:
+                    break;
+
+                case 4:
+                    break;
+
+                case 5:
+                    TelaPrincipal();
+                    break;
+
+                default:
+                    Console.Clear();
+                    Console.WriteLine("             Opção Inválida!                 ");
+                    Console.WriteLine("       ===============================       ");
+                    break;
+
+            }
+        }
     }
 }

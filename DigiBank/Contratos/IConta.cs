@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace DigiBank.Contratos
 {
-    public interface IConta
-    {
+    
         public interface IConta
         {
             void Deposita(double valor);
@@ -17,6 +16,6 @@ namespace DigiBank.Contratos
             string GetNumeroAgencia();
             string GetNumeroDaConta();
 
-        }
+        
     }
 }

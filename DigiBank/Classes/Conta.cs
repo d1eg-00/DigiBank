@@ -11,7 +11,7 @@ namespace DigiBank.Classes
         //Construtor da classe
         public Conta()
         {
-            this.NumeroConta = "001";
+            this.NumeroAgencia = "0001";
             Conta.NumeroDaContaSequencial ++;
 
         }
@@ -47,14 +47,14 @@ namespace DigiBank.Classes
             return this.CodigoDoBanco;
         }
 
-        public string? GetNumeroAgencia()
+        public string GetNumeroAgencia()
         {
-            return this.NumeroAgencia;
+            return this.NumeroAgencia!;
         }
 
-        public string? GetNumeroDaConta()
+        public string GetNumeroDaConta()
         {
-            return this.NumeroConta;
+            return this.NumeroConta!;
         }
 
     }
