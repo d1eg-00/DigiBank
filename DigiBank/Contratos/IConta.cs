@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Threading.Tasks;
+using DigiBank.Classes;
 
 namespace DigiBank.Contratos
 {
@@ -15,6 +16,8 @@ namespace DigiBank.Contratos
             string GetCodigoDoBanco();
             string GetNumeroAgencia();
             string GetNumeroDaConta();
+
+            List<Extrato> Extrato();
 
         
     }
